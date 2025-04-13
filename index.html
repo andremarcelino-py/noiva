@@ -14,23 +14,20 @@
   </header>
 
   <main>
-    <!-- Relacionamento -->
     <section class="contador">
       <h2>Estamos juntos há:</h2>
       <p id="tempoRelacionamento"></p>
     </section>
 
-    <!-- Noivado -->
     <section class="contador">
       <h2>Noivos há:</h2>
       <p id="tempoNoivado"></p>
     </section>
 
-    <!-- Galeria de fotos -->
     <section class="galeria">
-      <img src="imagem1.jpg" alt="Casal 1">
-      <img src="imagem2.jpg" alt="Casal 2">
-      <img src="imagem3.jpg" alt="Casal 3">
+      <img src="imagem1.jpg" alt="Casal 1" onclick="mostrarFrase(0)">
+      <img src="imagem2.jpg" alt="Casal 2" onclick="mostrarFrase(1)">
+      <img src="imagem3.jpg" alt="Casal 3" onclick="mostrarFrase(2)">
     </section>
   </main>
 
@@ -38,5 +35,14 @@
     <p>💖 Feito com carinho para nós dois 💖</p>
   </footer>
 
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="fecharModal()">
+    <div class="modal-conteudo" onclick="event.stopPropagation();">
+      <p id="fraseModal"></p>
+      <button onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
-</
+</body>
+</html>
