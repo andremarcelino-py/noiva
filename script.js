@@ -1,9 +1,10 @@
+// Datas importantes - edite conforme sua história
+const inicioRelacionamento = new Date("2024/07/27 00:00:00");
+const inicioNoivado = new Date("2025/01/11 00:00:00");
 
-const dataInicio = new Date("2024/07/27 00:00:00");
-
-function atualizarTempoJuntos() {
+function calcularTempo(dataInicial) {
   const agora = new Date();
-  const diferenca = agora - dataInicio;
+  const diferenca = agora - dataInicial;
 
   const segundosTotais = Math.floor(diferenca / 1000);
   const minutos = Math.floor(segundosTotais / 60) % 60;
@@ -14,11 +15,15 @@ function atualizarTempoJuntos() {
   const dias = (diasTotais % 365) % 30;
   const segundos = segundosTotais % 60;
 
-  const texto = `${anos} anos, ${meses} meses, ${dias} dias, ` +
-                `${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
-
-  document.getElementById("tempoJuntos").textContent = texto;
+  return `${anos} anos, ${meses} meses, ${dias} dias, ` +
+         `${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
 }
 
-setInterval(atualizarTempoJuntos, 1000);
-atualizarTempoJuntos();
+function atualizarContadores() {
+  document.getElementById("tempoRelacionamento").textContent = calcularTempo(inicioRelacionamento);
+  document.getElementById("tempoNoivado").textContent = calcularTempo(inicioNoivado);
+}
+
+// Atualiza os dois contadores a cada segundo
+setInterval(atualizarContadores, 1000);
+atualizarContadores();
